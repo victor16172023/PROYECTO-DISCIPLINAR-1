@@ -1,0 +1,109 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #212121;
+    color: #ffffff;
+}
+
+header {
+    background-color: #0d47a1;
+    padding: 2rem;
+    text-align: center;
+}
+
+header .title {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+header .subtitle {
+    font-size: 1.25rem;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 2rem;
+}
+
+nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #64b5f6;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.card3d {
+    background-color: #333333;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.card3d:hover {
+    transform: scale(1.05);
+}
+
+.card3d h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.card3d ul {
+    list-style-type: none;
+}
+
+.card3d a {
+    color: #64b5f6;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.reviews {
+    background-color: #333333;
+    padding: 2rem;
+    text-align: center;
+}
+
+.review-grid {
+    display: flex;
+    justify-content: space-between;
+}
+
+.review-card {
+    background-color: #444444;
+    padding: 1rem;
+    border-radius: 8px;
+    width: 30%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    background-color: #0d47a1;
+    color: #ffffff;
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 2rem;
+}
