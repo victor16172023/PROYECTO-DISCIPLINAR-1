@@ -2,76 +2,114 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Frontend Developer Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portafolio de desarrollador frontend con proyectos, artículos, contacto y tareas.">
+  <meta name="keywords" content="frontend, portafolio, proyectos, contacto, tareas">
+  <meta name="author" content="Tu Nombre">
+  <title>Frontend Developer Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="animated-header">
-        <h1 class="title">BIENVENIDO</h1>
-        <p class="subtitle">Aqui podras ver la informacion bien distribuida de la pagina web</p>
-        <nav>
-            <ul>
-                <li><a href="#">INICIO</a></li>
-                <li><a href="#">PROYECTO</a></li>
-                <li><a href="#">ARTICULOS</a></li>
-                <li><a href="#">CONTACTOS</a></li>
-            </ul>
-        </nav>
-    </header>
-    
-    <main>
-        <div class="grid-container">
-            <section class="card3d">
-                <h2>PROYECTOS</h2>
-                <ul>
-                    <li>HTML Only </li>
-                    <li>Calculator</li>
-                    <li>Quiz App</li>
-                    <li>Countdown Timer</li>
-                    <li>Product Upcoming Page</li>
-                </ul>
-            </section>
-            
-            <section class="card3d">
-                <h2>EXPERIENCIA DE TRABAJO</h2>
-                <h3>roadmap.sh</h3>
-                <p>Solved all the frontend projects</p>
-                <a href="#">Visit my Profile</a>
-                <h3>Open Source Work</h3>
-                <p>Contributed to 50 open-source projects. Made my own projects with 200 GitHub Stars.</p>
-                <a href="#">Visit my GitHub Profile</a>
-            </section>
-            
-            <section class="card3d">
-                <h2>EDUCACION</h2>
-                <p>Graduated with 3.76 out of 4 CGPA. Won Acme Hackathon. Organized 30 sessions.</p>
-                <h3>Courses I took:</h3>
-                <ul>
-                    <li>Object Oriented Programming</li>
-                    <li>Data Structures and Algorithms</li>
-                    <li>Web Engineering</li>
-                    <li>Artificial Intelligence</li>
-                </ul>
-            </section>
-        </div>
+
+  <header class="animated-header">
+    <h1 class="title">BIENVENIDO</h1>
+    <p class="subtitle">Aquí podrás ver toda la información organizada</p>
+    <nav>
+      <ul>
+        <li><a href="#inicio">INICIO</a></li>
+        <li><a href="#proyectos">PROYECTO</a></li>
+        <li><a href="#articulos">ARTICULOS</a></li>
+        <li><a href="#contacto">CONTACTO</a></li>
+        <li><a href="#tareas">TAREAS</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <section id="inicio" class="grid-container">
+      <section class="card3d">
+        <h2>PROYECTOS</h2>
+        <ul>
+          <li>HTML Only</li>
+          <li>Calculator</li>
+          <li>Quiz App</li>
+          <li>Countdown Timer</li>
+          <li>Product Upcoming Page</li>
+        </ul>
+      </section>
+      
+      <section class="card3d">
+        <h2>EXPERIENCIA</h2>
+        <h3>roadmap.sh</h3>
+        <p>Realización de proyectos frontend</p>
+        <a href="#">Ver perfil</a>
+        <h3>Open Source</h3>
+        <p>Contribuciones a proyectos open source con más de 200 estrellas</p>
+        <a href="#">GitHub</a>
+      </section>
+
+      <section class="card3d">
+        <h2>EDUCACIÓN</h2>
+        <p>Graduado con 3.76 de GPA, ganador de hackathons</p>
+        <h3>Cursos:</h3>
+        <ul>
+          <li>POO</li>
+          <li>Estructuras de Datos</li>
+          <li>Web Engineering</li>
+          <li>IA</li>
+        </ul>
+      </section>
+    </section>
+
+    <section id="articulos" class="timeline-container">
+      <div class="timeline-header">
+        <h2>Artículos Recientes</h2>
+        <p>Últimas novedades y avances</p>
+      </div>
+      <div class="timeline">
+        <div class="event"><div class="event-date">03 Sep 2024</div><div class="event-description">Proyectos en Frontend Roadmap</div></div>
+        <div class="event"><div class="event-date">28 Ago 2024</div><div class="event-description">Learning Streaks</div></div>
+        <div class="event"><div class="event-date">25 Ago 2024</div><div class="event-description">Git y GitHub Roadmap</div></div>
+        <div class="event"><div class="event-date">22 Ago 2024</div><div class="event-description">Feedback de Proyectos</div></div>
+        <div class="event"><div class="event-date">15 Ago 2024</div><div class="event-description">Ideas Backend</div></div>
+        <div class="event"><div class="event-date">10 Ago 2024</div><div class="event-description">Redis Roadmap</div></div>
+      </div>
+    </section>
+
+    <section id="contacto" class="form-section">
+      <h2>Contacto</h2>
+      <form id="contactForm">
+        <label for="name">Nombre:</label>
+        <input type="text" id="name" required />
         
-        <section class="reviews">
-            <h2>Reviews from my Teachers</h2>
-            <div class="review-grid">
-                <div class="review-card card3d">John Doe was a brilliant student.<br><span>Jane Doe, Assistant Professor</span></div>
-                <div class="review-card card3d">John Doe was outstanding in class.<br><span>Jane Doe, Assistant Professor</span></div>
-                <div class="review-card card3d">John Doe showed great potential.<br><span>Jane Doe, Assistant Professor</span></div>
-            </div>
-        </section>
-    </main>
-    
-    <footer>
-        <p>&copy; all rights reserved 2025</p>
-    </footer>
-    
-    <script src="script.js"></script>
+        <label for="email">Correo Electrónico:</label>
+        <input type="email" id="email" required />
+        
+        <label for="message">Mensaje:</label>
+        <textarea id="message" rows="5" required></textarea>
+        
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+
+    <section id="tareas" class="task-section">
+      <h2>Lista de Tareas</h2>
+      <div class="task-input">
+        <input type="text" id="taskInput" placeholder="Añadir nueva tarea..." />
+        <button onclick="addTask()">Añadir</button>
+      </div>
+      <ul id="taskList" class="task-list"></ul>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Todos los derechos reservados</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
