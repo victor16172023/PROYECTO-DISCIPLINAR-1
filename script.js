@@ -1,42 +1,410 @@
-// Formulario de contacto
-document.addEventListener("DOMContentLoaded", function () {
-  const form = document.getElementById("contactForm");
-  if (form) {
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-      const name = document.getElementById("name").value;
-      const email = document.getElementById("email").value;
-      const message = document.getElementById("message").value;
-      
-      if (name && email && message) {
-        alert(`Gracias por tu mensaje, ${name}. ¡Te contactaremos pronto!`);
-        form.reset();
-      } else {
-        alert("Por favor completa todos los campos.");
-      }
-    });
+/* Paleta:
+   - Azul oscuro: #0d47a1
+   - Gris oscuro: #212121
+   - Gris claro: #b0bec5
+   - Blanco puro: #ffffff
+   - Gris medio: #757575
+*/
+
+/* Reset básico */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+
+/* Fuente global */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #212121; /* Fondo gris oscuro */
+  color: #fff;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100vh;
+}
+
+/* Estilo de la cabecera */
+header {
+  background: #0d47a1; /* Azul oscuro */
+  color: #fff;
+  text-align: center;
+  padding: 4rem 1rem;
+  border-radius: 0 0 30px 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  width: 100%;
+}
+
+header h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+header p {
+  font-size: 1.3rem;
+  font-weight: 300;
+  margin-bottom: 1.5rem;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  padding-bottom: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #ffffff;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+nav a:hover {
+  color: #b0bec5; /* Gris claro */
+}
+
+nav a:hover::after {
+  transform: scaleX(1);
+}
+
+/* Secciones generales */
+main {
+  padding: 2.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 3rem;
+  width: 100%;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 3rem;
+  margin-bottom: 3rem;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.card3d {
+  background: #333333; /* Gris oscuro */
+  padding: 2.5rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-left: 5px solid #0d47a1; /* Azul oscuro */
+}
+
+.card3d:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
+}
+
+.card3d h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #fff;
+}
+
+.card3d p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  color: #b0bec5; /* Gris claro */
+}
+
+.card3d a {
+  color: #b0bec5; /* Gris claro */
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+}
+
+.card3d a:hover {
+  color: #0d47a1; /* Azul oscuro */
+}
+
+/* Timeline */
+.timeline-container {
+  background: #333333; /* Gris oscuro */
+  padding: 3rem;
+  border-radius: 20px;
+  margin-bottom: 3rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 900px;
+}
+
+.timeline-header h1 {
+  color: #0d47a1; /* Azul oscuro */
+  font-size: 3rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.timeline .event {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: #424242; /* Gris medio */
+  border-radius: 12px;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.timeline .event::before {
+  content: '';
+  position: absolute;
+  left: -10px;
+  top: 10px;
+  width: 12px;
+  height: 12px;
+  background-color: #0d47a1; /* Azul oscuro */
+  border-radius: 50%;
+}
+
+.event-date {
+  font-weight: bold;
+  font-size: 1.3rem;
+  color: #b0bec5; /* Gris claro */
+  margin-bottom: 1rem;
+}
+
+.event-description {
+  color: #fff;
+}
+
+.event a {
+  color: #b0bec5; /* Gris claro */
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+}
+
+.event a:hover {
+  color: #0d47a1; /* Azul oscuro */
+}
+
+/* Botón flotante */
+.btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #0d47a1; /* Azul oscuro */
+  color: #fff;
+  padding: 1.5rem 2.5rem;
+  border-radius: 50px;
+  font-size: 1.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  z-index: 10;
+  border: none;
+}
+
+.btn:hover {
+  background-color: #b0bec5; /* Gris claro */
+  transform: translateY(-5px);
+}
+
+/* Formulario de contacto */
+form {
+  max-width: 700px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2.5rem;
+  background: #333333; /* Gris oscuro */
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+form input,
+form textarea {
+  padding: 1.2rem;
+  border: 1px solid #444;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  background-color: #424242; /* Gris medio */
+  color: #fff;
+}
+
+form textarea {
+  min-height: 160px;
+  resize: vertical;
+}
+
+form button {
+  background-color: #0d47a1; /* Azul oscuro */
+  color: #ffffff;
+  font-weight: 600;
+  border: none;
+  padding: 1.2rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+form button:hover {
+  background-color: #b0bec5; /* Gris claro */
+  transform: translateY(-3px);
+}
+
+/* Lista de tareas */
+.task-input {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.task-input input {
+  padding: 1.2rem;
+  width: 280px;
+  border: 1px solid #444;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  background-color: #424242; /* Gris medio */
+  color: #fff;
+}
+
+.task-input button {
+  background-color: #0d47a1; /* Azul oscuro */
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  padding: 1.2rem 2.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.task-input button:hover {
+  background-color: #b0bec5; /* Gris claro */
+  transform: translateY(-3px);
+}
+
+.task-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 2rem;
+  max-width: 700px;
+  width: 100%;
+}
+
+.task-list li {
+  background: #333333; /* Gris oscuro */
+  padding: 1.2rem;
+  margin-bottom: 1rem;
+  border-left: 5px solid #0d47a1; /* Azul oscuro */
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.task-list li.completed {
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+
+.task-list li button {
+  background: transparent;
+  border: none;
+  color: #e53935;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+/* Pie de página */
+footer {
+  background-color: #0d47a1; /* Azul oscuro */
+  color: #ffffff;
+  text-align: center;
+  padding: 1.5rem;
+  margin-top: 2rem;
+  width: 100%;
+  position: relative;
+}
+/* Botón hamburguesa (oculto en desktop) */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2.5rem;
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+/* Botón hamburguesa */
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  z-index: 11;
+}
+
+/* Responsive: ocultar menú y mostrar botón en pantallas pequeñas */
+@media (max-width: 768px) {
+  nav {
+    position: absolute;
+    top: 100px;
+    right: 0;
+    background: #0d47a1;
+    width: 100%;
+    padding: 2rem 0;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
   }
-});
 
-// Lista de tareas
-function addTask() {
-  const taskInput = document.getElementById("taskInput");
-  const taskList = document.getElementById("taskList");
+  nav ul {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
 
-  if (taskInput.value.trim() !== "") {
-    const li = document.createElement("li");
-    li.textContent = taskInput.value;
+  .menu-toggle {
+    display: block;
+  }
 
-    li.addEventListener("click", () => {
-      li.classList.toggle("completed");
-    });
-
-    const deleteBtn = document.createElement("button");
-    deleteBtn.textContent = "🗑️";
-    deleteBtn.onclick = () => li.remove();
-    li.appendChild(deleteBtn);
-
-    taskList.appendChild(li);
-    taskInput.value = "";
+  nav.active {
+    display: flex;
   }
 }
+
